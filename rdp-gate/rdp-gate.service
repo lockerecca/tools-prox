@@ -1,0 +1,13 @@
+[Unit]
+Description=RDP gate - abre el set nft rdp_allow bajo demanda
+After=nftables.service
+Requires=nftables.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/sbin/rdp-gated.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
